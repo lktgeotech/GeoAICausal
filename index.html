@@ -1,0 +1,2123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lakshmikant Tiwari | Geo-information Science and Technology & Earth and Environmental Systems Science & Agriculture, climate and Socio-economic Dynamics & Advanced GeoAI and GeoStatistics for Research</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #1a365d;
+            --secondary: #3182ce;
+            --accent: #38b2ac;
+            --highlight: #805ad5;
+            --light: #f7fafc;
+            --dark: #2d3748;
+            --gradient: linear-gradient(135deg, #1a365d 0%, #3182ce 50%, #38b2ac 100%);
+            --gradient-vibrant: linear-gradient(135deg, #1a365d 0%, #4c7fce 30%, #38b2ac 70%, #805ad5 100%);
+            --shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            --radius: 14px;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--gradient-vibrant);
+            padding: 25px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+            background-color: rgba(26, 54, 93, 0.95);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .profile-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid var(--accent);
+            object-fit: cover;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo h1 {
+            color: white;
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            line-height: 1.3;
+        }
+
+        .logo-sub {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            font-weight: 500;
+            color: #cbd5e0;
+            max-width: 300px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: var(--accent);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+            border-radius: 3px;
+        }
+
+        nav a:hover, nav a.active {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-3px);
+        }
+
+        nav a:hover::after, nav a.active::after {
+            width: 60%;
+        }
+
+        .mobile-menu {
+            display: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 200px 0 150px;
+            background: var(--gradient-vibrant);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+            opacity: 0.12;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 3.8rem;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .highlight {
+            color: #ffd93d;
+            font-weight: 700;
+            background: rgba(255, 217, 61, 0.15);
+            padding: 0 8px;
+            border-radius: 4px;
+        }
+
+        .highlight-2 {
+            color: #38b2ac;
+            font-weight: 700;
+        }
+
+        .website-tagline {
+            font-size: 1.6rem;
+            font-style: italic;
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius);
+            border-left: 5px solid var(--accent);
+            text-align: left;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent), #4fd1c7);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 8px 25px rgba(56, 178, 172, 0.4);
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(56, 178, 172, 0.6);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 3px solid white;
+            margin-left: 20px;
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        /* Expandable Content Styles */
+        .expandable-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            margin-top: 15px;
+            padding: 0 20px;
+        }
+
+        .expandable-content.active {
+            max-height: 500px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .expandable-content p {
+            margin-bottom: 15px;
+            color: #4a5568;
+        }
+
+        .expandable-content ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .expandable-content li {
+            margin-bottom: 8px;
+        }
+
+        .expand-trigger {
+            cursor: pointer;
+            position: relative;
+            display: inline-block;
+            padding-right: 35px;
+        }
+
+        .expand-trigger::after {
+            content: '+';
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2em;
+            font-weight: bold;
+            color: var(--secondary);
+            transition: transform 0.3s ease;
+        }
+
+        .expand-trigger.active::after {
+            content: '−';
+            transform: translateY(-50%) rotate(0deg);
+        }
+
+        .section-title h2.expand-trigger:hover::after {
+            color: var(--accent);
+        }
+
+        /* Sections */
+        section {
+            padding: 110px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            font-weight: 800;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 6px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            bottom: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 6px;
+        }
+
+        .section-title p {
+            color: #4a5568;
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 30px auto 0;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 2.4rem;
+            color: var(--secondary);
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .about-text p {
+            margin-bottom: 25px;
+            font-size: 1.15rem;
+            color: #4a5568;
+        }
+
+        .about-tagline {
+            background: linear-gradient(135deg, #e6fffa, #ebf8ff);
+            padding: 25px;
+            border-radius: var(--radius);
+            border-left: 5px solid var(--accent);
+            margin-bottom: 30px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary);
+            line-height: 1.6;
+        }
+
+        /* Affiliations Section - Updated with logos */
+        .affiliations-section {
+            background: #f8fafc;
+            padding: 100px 0;
+        }
+
+        .affiliations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .affiliation-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 35px 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border-top: 6px solid var(--secondary);
+        }
+
+        .affiliation-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .affiliation-logo {
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            background: white;
+            border-radius: 50%;
+            padding: 20px;
+            border: 2px solid #e2e8f0;
+        }
+
+        .affiliation-logo i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+        }
+
+        .affiliation-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .affiliation-card h4 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .affiliation-card p {
+            color: #718096;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .affiliation-tag {
+            display: inline-block;
+            background: #e6fffa;
+            color: var(--accent);
+            padding: 6px 15px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: auto;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: var(--transition);
+        }
+
+        .about-image:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.7s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Research Interests */
+        .interests-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 35px;
+        }
+
+        .interest-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 40px 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 6px solid var(--secondary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .interest-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-vibrant);
+        }
+
+        .interest-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .interest-card i {
+            font-size: 2.8rem;
+            color: var(--secondary);
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, #e6f7ff, #ebf8ff);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .interest-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .interest-card p {
+            color: #4a5568;
+            font-size: 1.05rem;
+        }
+
+        /* Experience & Education */
+        .timeline {
+            position: relative;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            background: linear-gradient(to bottom, var(--secondary), var(--accent));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -4px;
+            border-radius: 10px;
+        }
+
+        .timeline-item {
+            padding: 25px 50px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 35px;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            position: relative;
+            border-left: 5px solid var(--secondary);
+        }
+
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            background: white;
+            transform: rotate(45deg);
+            top: 35px;
+            border-left: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            right: -11px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::after {
+            left: -11px;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: white;
+            border: 6px solid var(--accent);
+            border-radius: 50%;
+            top: 35px;
+            z-index: 1;
+            box-shadow: 0 0 0 4px white;
+        }
+
+        .timeline-item:nth-child(odd)::after {
+            right: -15px;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -15px;
+        }
+
+        .timeline-date {
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.1rem;
+        }
+
+        .timeline-date i {
+            font-size: 1.2rem;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .timeline-content p {
+            color: #4a5568;
+            margin-bottom: 10px;
+        }
+
+        .org {
+            color: var(--highlight);
+            font-weight: 600;
+        }
+
+        /* Institution logos in timeline */
+        .timeline-logo {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 8px;
+            padding: 10px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+        }
+
+        .timeline-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        /* Publications */
+        .publications-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 35px;
+        }
+
+        .pub-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 35px;
+            box-shadow: var(--shadow);
+            border-left: 6px solid var(--accent);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .pub-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .pub-card h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            line-height: 1.4;
+            font-weight: 600;
+            flex-grow: 1;
+        }
+
+        .pub-card .journal {
+            color: var(--secondary);
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: block;
+            font-size: 1.05rem;
+        }
+
+        .pub-card .authors {
+            color: #718096;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .pub-card .btn-small {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-top: auto;
+            transition: var(--transition);
+            align-self: flex-start;
+        }
+
+        .btn-small:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        /* Skills */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 35px;
+        }
+
+        .skill-category {
+            background: white;
+            border-radius: var(--radius);
+            padding: 35px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px);
+        }
+
+        .skill-category h3 {
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            font-weight: 700;
+        }
+
+        .skill-category h3 i {
+            color: var(--accent);
+            background: #e6fffa;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .skill-item {
+            margin-bottom: 25px;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .skill-bar {
+            height: 12px;
+            background: #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            border-radius: 10px;
+        }
+
+        /* Projects Section */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 35px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 35px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 6px solid var(--highlight);
+        }
+
+        .project-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .project-card .status {
+            display: inline-block;
+            background: #c6f6d5;
+            color: #22543d;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .project-card .status.ongoing {
+            background: #bee3f8;
+            color: #2c5282;
+        }
+
+        .project-card p {
+            color: #4a5568;
+            margin-bottom: 25px;
+        }
+
+        /* Certifications Section */
+        .certifications-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .cert-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            border-left: 5px solid var(--accent);
+        }
+
+        .cert-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .cert-logo {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            background: white;
+            border-radius: 8px;
+            padding: 10px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .cert-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .cert-card h4 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .cert-card p {
+            color: #718096;
+            font-size: 0.95rem;
+        }
+
+        /* Contact */
+        .contact-section {
+            background: var(--gradient-vibrant);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+            opacity: 0.08;
+            z-index: 0;
+        }
+
+        .contact-container {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 60px;
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--radius);
+            padding: 45px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-info h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 35px;
+            font-weight: 700;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 35px;
+            gap: 25px;
+        }
+
+        .contact-item i {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            background: rgba(56, 178, 172, 0.1);
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .contact-details p {
+            color: #4a5568;
+            font-size: 1.1rem;
+        }
+
+        .phone-protected {
+            background: #f7fafc;
+            padding: 8px 15px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            display: inline-block;
+            font-family: monospace;
+            font-size: 1.1rem;
+        }
+
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 55px;
+            height: 55px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            font-size: 1.4rem;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-7px) scale(1.1);
+        }
+
+        .profiles-list {
+            list-style: none;
+        }
+
+        .profiles-list li {
+            margin-bottom: 20px;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+
+        .profiles-list li:hover {
+            background: white;
+            transform: translateX(10px);
+        }
+
+        .profiles-list a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.1rem;
+        }
+
+        .profiles-list i {
+            color: var(--secondary);
+            font-size: 1.3rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 70px 0 40px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.6rem;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            bottom: 0;
+            left: 0;
+            border-radius: 4px;
+        }
+
+        .footer-col p {
+            opacity: 0.85;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 18px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            transform: translateX(8px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* Logo Images */
+        .logo-img {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .hero h2 {
+                font-size: 3.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.6rem;
+            }
+            
+            .website-tagline {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+            
+            .hero {
+                padding: 180px 0 120px;
+            }
+            
+            .hero h2 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.4rem;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 80px;
+                padding-right: 30px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .timeline-item:nth-child(odd)::after,
+            .timeline-item:nth-child(even)::after {
+                left: 21px;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content::after,
+            .timeline-item:nth-child(even) .timeline-content::after {
+                left: -11px;
+            }
+            
+            section {
+                padding: 90px 0;
+            }
+            
+            .affiliations-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .timeline-logo {
+                position: relative;
+                top: 0;
+                right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .website-tagline {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                position: fixed;
+                top: 90px;
+                left: 0;
+                width: 100%;
+                background: var(--primary);
+                padding: 25px;
+                transform: translateY(-150%);
+                transition: transform 0.5s ease;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                z-index: 999;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            nav.active {
+                transform: translateY(0);
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero {
+                padding: 160px 0 100px;
+            }
+            
+            .hero h2 {
+                font-size: 2.4rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .btn {
+                padding: 14px 30px;
+                margin-bottom: 10px;
+                display: block;
+                width: 100%;
+                max-width: 300px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .affiliations-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .website-tagline {
+                font-size: 1.2rem;
+                padding: 15px;
+            }
+            
+            .about-tagline {
+                font-size: 1.1rem;
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.9rem;
+            }
+            
+            .contact-info {
+                padding: 30px;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .affiliations-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .website-tagline {
+                font-size: 1.1rem;
+            }
+            
+            .about-tagline {
+                font-size: 1rem;
+            }
+            
+            .logo-sub {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="https://media.licdn.com/dms/image/v2/D5603AQHvlIYFLwkVlA/profile-displayphoto-shrink_800_800/B56ZRpVAavHwAk-/0/1736933902661?e=1767225600&v=beta&t=BtsO-987oNCr5hH-kUdfWpVLJFt7ZqPBKx5Lw6sw-PE" alt="Lakshmikant Tiwari" class="profile-img">
+                <div>
+                    <h1>Lakshmikant Tiwari</h1>
+                    <div class="logo-sub">Geospatial Science-Tech for Applied R&D (RS&GIS-Geospatial Analytics-GeoAI computing-Allied and interdisciplinary approach-based Solutions for Geos-Our Living Environment-Real world Applications-Socio-economic Dynamics)</div>
+                </div>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#affiliations">Affiliations</a></li>
+                    <li><a href="#research">Research</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#publications">Publications</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h2>Integrating Geospatial Analytics, GeoAI, and Environmental Modelling</h2>
+            <p>With <span class="highlight">8+ years</span> of applied research experience across diverse landscapes, leveraging <span class="highlight-2">Geospatial Science & Technology</span> for resilient futures in a changing climate. Specializing in earth, environment, hydrology, agriculture systems science with Geospatial causal inference-based impact evaluation.</p>
+            
+            <div class="website-tagline">
+                Geospatial Science-Tech for Applied R&D (RS&GIS-Geospatial Analytics-GeoAI computing-Allied and interdisciplinary approach-based Solutions for Geos-Our Living Environment-Real world Applications-Socio-economic Dynamics)
+            </div>
+            
+            <a href="#contact" class="btn">Get In Touch</a>
+            <a href="#research" class="btn btn-outline">Explore Research</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="expand-trigger">About Me</h2>
+                <p>Research Fellow at Institute of Rural Management Anand (IRMA) with interdisciplinary expertise in Remote Sensing, GIS, Geography, and GeoAI applications for environmental systems.</p>
+            </div>
+            
+            <div class="expandable-content">
+                <p><strong>Detailed Overview:</strong> I specialize in integrating geospatial analytics with environmental science to address complex challenges in climate change, natural resource management, and sustainable development.</p>
+                <p><strong>Key Expertise:</strong></p>
+                <ul>
+                    <li>Advanced Geospatial Analytics and Modelling</li>
+                    <li>Climate Change Vulnerability Assessment</li>
+                    <li>Hydrological Process Modelling</li>
+                    <li>GeoAI and Machine Learning Applications</li>
+                    <li>Sustainable Development Goals (SDG) Monitoring</li>
+                </ul>
+                <p><strong>Research Philosophy:</strong> Bridging the gap between theoretical geospatial science and practical environmental management through innovative research methodologies and technology applications.</p>
+            </div>
+            
+            <div class="about-tagline">
+                Geo-information Science and Technology & Earth and Environmental Systems Science & Agriculture, climate and Socio-economic Dynamics & Advanced Geo-AI and Geo-Statistics for Research
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Lakshmikant Tiwari, M.Tech (Remote Sensing & GIS)</h3>
+                    <p>I am passionate about exploring the impact and efficiency of environmental planning and management strategies, drivers, processes and dynamics in changing climate settings for effective environmental monitoring.</p>
+                    <p>My work integrates Geospatial Analytics, satellite data processing, machine learning, and causal inference while mapping urban landscape systems indicators using satellite-derived biophysical parameters.</p>
+                    <p>I have led geospatial analytics for the World Bank-supported REWARD intervention, focusing on hydrological processes modelling for watershed management, disaster resilience, and hydroclimatic dynamics.</p>
+                    
+                    <a href="#experience" class="btn" style="margin-top: 30px;">View Full Experience</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="AI-Integrated Geospatial Research">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Affiliations Section -->
+    <section id="affiliations" class="affiliations-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="expand-trigger">Professional Affiliations & Certifications</h2>
+                <p>Organizations, institutions, and certifications that have shaped my professional journey in geospatial science and environmental research.</p>
+            </div>
+            <div class="expandable-content">
+                <p><strong>Professional Network:</strong> These affiliations represent my diverse professional journey across academic, research, and applied domains of geospatial science and environmental management.</p>
+                <p><strong>Certification Highlights:</strong> Multiple certifications from NASA Applied Remote Sensing Training (ARSET) and Indian Institute of Remote Sensing (IIRS) demonstrate continuous learning and expertise in cutting-edge remote sensing technologies.</p>
+            </div>
+            <div class="affiliations-grid">
+                <div class="affiliation-card">
+                    <div class="affiliation-logo">
+                        <img src="https://irma.ac.in/images/logo.png" alt="IRMA Logo" onerror="this.src='https://via.placeholder.com/100x100/1a365d/ffffff?text=IRMA'">
+                    </div>
+                    <h4>Institute of Rural Management Anand (IRMA)</h4>
+                    <p>Research Fellow - Geospatial Science & Technology</p>
+                    <span class="affiliation-tag">Current Affiliation</span>
+                </div>
+                
+                <div class="affiliation-card">
+                    <div class="affiliation-logo">
+                        <img src="https://icfre.gov.in/Images/icfre.gif" alt="ICFRE Logo" onerror="this.src='https://via.placeholder.com/100x100/1a365d/ffffff?text=ICFRE'">
+                    </div>
+                    <h4>Indian Council of Forestry Research and Education (ICFRE)</h4>
+                    <p>Research Associate-III - Environmental Modelling</p>
+                    <span class="affiliation-tag">Forest Research</span>
+                </div>
+                
+                <div class="affiliation-card">
+                    <div class="affiliation-logo">
+                        <img src="https://iiasa.ac.at/themes/custom/iiasa/standard-logo.svg" alt="IIASA Logo" onerror="this.src='https://via.placeholder.com/100x100/1a365d/ffffff?text=IIASA'">
+                    </div>
+                    <h4>International Institute for Applied Systems Analysis (IIASA)</h4>
+                    <p>Visiting Research Scholar - Climate Data Processing</p>
+                    <span class="affiliation-tag">International Research</span>
+                </div>
+                
+                <div class="affiliation-card">
+                    <div class="affiliation-logo">
+                        <img src="https://appliedsciences.nasa.gov/themes/custom/nasa_as/logo.svg" alt="NASA ARSET Logo" onerror="this.src='https://via.placeholder.com/100x100/1a365d/ffffff?text=NASA'">
+                    </div>
+                    <h4>NASA Applied Remote Sensing Training (ARSET)</h4>
+                    <p>Multiple Certifications in Advanced Remote Sensing</p>
+                    <span class="affiliation-tag">NASA Certified</span>
+                </div>
+                
+                <div class="affiliation-card">
+                    <div class="affiliation-logo">
+                        <img src="https://bitmesra.ac.in/SiteLogo/BIT-Mesra.png" alt="BIT Mesra Logo" onerror="this.src='https://via.placeholder.com/100x100/1a365d/ffffff?text=BIT'">
+                    </div>
+                    <h4>Birla Institute of Technology, Mesra</h4>
+                    <p>M.Tech in Remote Sensing & GIS (First Class)</p>
+                    <span class="affiliation-tag">Alma Mater</span>
+                </div>
+                
+                <div class="affiliation-card">
+                    <div class="affiliation-logo">
+                        <img src="https://www.bhu.ac.in/Scripts/SitesBhu/images/logo.png" alt="BHU Logo" onerror="this.src='https://via.placeholder.com/100x100/1a365d/ffffff?text=BHU'">
+                    </div>
+                    <h4>Banaras Hindu University (BHU)</h4>
+                    <p>Masters in Geography</p>
+                    <span class="affiliation-tag">Alma Mater</span>
+                </div>
+                
+                <div class="affiliation-card">
+                    <div class="affiliation-logo">
+                        <img src="https://elearning.iirs.gov.in/img/logo.png" alt="IIRS Logo" onerror="this.src='https://via.placeholder.com/100x100/1a365d/ffffff?text=IIRS'">
+                    </div>
+                    <h4>Indian Institute of Remote Sensing (IIRS)</h4>
+                    <p>Remote Sensing, GIS & GPS Certification</p>
+                    <span class="affiliation-tag">ISRO Department</span>
+                </div>
+                
+                <div class="affiliation-card">
+                    <div class="affiliation-logo">
+                        <img src="https://fes.org.in/resources/images/fes-logo.svg" alt="FES Logo" onerror="this.src='https://via.placeholder.com/100x100/1a365d/ffffff?text=FES'">
+                    </div>
+                    <h4>Foundation for Ecological Security (FES)</h4>
+                    <p>Senior Project Officer - Ecological Studies</p>
+                    <span class="affiliation-tag">Environmental NGO</span>
+                </div>
+                
+                <div class="affiliation-card">
+                    <div class="affiliation-logo">
+                        <img src="https://www.jnu.ac.in/sites/default/files/logo_0.png" alt="JNU Logo" onerror="this.src='https://via.placeholder.com/100x100/1a365d/ffffff?text=JNU'">
+                    </div>
+                    <h4>Jawaharlal Nehru University (JNU)</h4>
+                    <p>Visiting Scholar & Research Collaborations</p>
+                    <span class="affiliation-tag">Academic Collaboration</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Interests -->
+    <section id="research" style="background: #f8fafc;">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="expand-trigger">Research Interests & Specializations</h2>
+                <p>Interdisciplinary research at the intersection of geospatial science, environmental monitoring, and climate resilience.</p>
+            </div>
+            <div class="expandable-content">
+                <p><strong>Research Approach:</strong> My research integrates quantitative geospatial methods with qualitative socio-economic analysis to address complex environmental challenges.</p>
+                <p><strong>Methodological Focus:</strong> Emphasis on developing and applying novel geospatial algorithms, machine learning models, and causal inference methods for environmental impact assessment.</p>
+                <p><strong>Collaborative Framework:</strong> Working at the interface of academia, government agencies, and NGOs to translate research findings into practical policy recommendations.</p>
+            </div>
+            <div class="interests-container">
+                <div class="interest-card">
+                    <i class="fas fa-satellite-dish"></i>
+                    <h3>Geospatial Science & Technology</h3>
+                    <p>Applications to environmental monitoring, landscape metrics, and hydroclimatic modelling for planning and policy.</p>
+                </div>
+                <div class="interest-card">
+                    <i class="fas fa-water"></i>
+                    <h3>Hydrological Modelling & GeoAI</h3>
+                    <p>Integration for watershed-scale water resource management and Sustainable Development Goal (SDG)-aligned planning.</p>
+                </div>
+                <div class="interest-card">
+                    <i class="fas fa-seedling"></i>
+                    <h3>Climate Resilience & Natural Resource Management</h3>
+                    <p>Natural Resource Management including crop suitability assessment, yield estimation, and agro-ecosystem health forecasting.</p>
+                </div>
+                <div class="interest-card">
+                    <i class="fas fa-chart-area"></i>
+                    <h3>Spatio-temporal Dynamics</h3>
+                    <p>Modelling and climate change vulnerability assessment using multisource remote sensing and earth system indicators.</p>
+                </div>
+                <div class="interest-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>Causal Inference & GeoAI</h3>
+                    <p>Smart computing (AI/ML/DL) for predictive analytics, pattern recognition, and impact evaluation of environmental interventions.</p>
+                </div>
+                <div class="interest-card">
+                    <i class="fas fa-cloud"></i>
+                    <h3>Cloud-based Computing</h3>
+                    <p>Google Earth Engine (GEE), HPC for big data processing, simulation, and Geospatial-temporal analytics.</p>
+                </div>
+                <div class="interest-card">
+                    <i class="fas fa-satellite-dish"></i>
+                    <h3>Microwave Remote Sensing</h3>
+                    <p>SAR applications for soil moisture estimation, terrain analysis, and disaster risk modelling.</p>
+                </div>
+                <div class="interest-card">
+                    <i class="fas fa-layer-group"></i>
+                    <h3>Spatial MCDA & Decision Support</h3>
+                    <p>GIS-Geodatabase-based decision support systems for Geo-ICT-enabled spatial & micro-level integrated planning.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Education -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="expand-trigger">Experience & Education</h2>
+                <p>Professional journey in geospatial research, environmental modelling, and academic leadership.</p>
+            </div>
+            <div class="expandable-content">
+                <p><strong>Career Trajectory:</strong> A progressive journey from technical specialist to research leadership roles in premier institutions, with consistent focus on applied geospatial research for environmental sustainability.</p>
+                <p><strong>International Exposure:</strong> Research collaborations with international organizations including IIASA (Austria) have enriched my global perspective on environmental challenges.</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-logo">
+                            <img src="https://irma.ac.in/images/logo.png" alt="IRMA Logo" onerror="this.src='https://via.placeholder.com/50x50/1a365d/ffffff?text=IRMA'">
+                        </div>
+                        <div class="timeline-date"><i class="fas fa-calendar-alt"></i> June 2024 – Present</div>
+                        <h3>Research Fellow - GIS</h3>
+                        <p class="org">Varghese Kurian Policy Lab (VKPL), Institute of Rural Management Anand (IRMA)</p>
+                        <p>Lead geospatial analytics for World Bank-supported REWARD project focusing on watershed health and hydrological processes modelling. GeoAI with causal inference and smart computing-based impact evaluation.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-logo">
+                            <img src="https://icfre.gov.in/Images/icfre.gif" alt="ICFRE Logo" onerror="this.src='https://via.placeholder.com/50x50/1a365d/ffffff?text=ICFRE'">
+                        </div>
+                        <div class="timeline-date"><i class="fas fa-calendar-alt"></i> April 2022 – Dec 2022</div>
+                        <h3>Research Associate-III</h3>
+                        <p class="org">Indian Council of Forestry Research and Education (ICFRE), Dehradun</p>
+                        <p>Led environmental modelling efforts to assess socio-ecological vulnerability to climate change with focus on landscape and hydrological dynamics. Utilized Python and Google Earth Engine for scalable geospatial analysis.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-logo">
+                            <img src="https://iiasa.ac.at/themes/custom/iiasa/standard-logo.svg" alt="IIASA Logo" onerror="this.src='https://via.placeholder.com/50x50/1a365d/ffffff?text=IIASA'">
+                        </div>
+                        <div class="timeline-date"><i class="fas fa-calendar-alt"></i> 2011 - 2018</div>
+                        <h3>Project Scientist & Visiting Scholar</h3>
+                        <p class="org">IRMA, Anand & International Institute for Applied Systems Analysis (IIASA), Austria</p>
+                        <p>Contributed to climate data processing and development of crop forecasting models, yield simulations, and adaptive land-water-nutrient management strategies. Research Scholar at IIASA for climate adaptation projects.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-logo">
+                            <img src="https://fes.org.in/resources/images/fes-logo.svg" alt="FES Logo" onerror="this.src='https://via.placeholder.com/50x50/1a365d/ffffff?text=FES'">
+                        </div>
+                        <div class="timeline-date"><i class="fas fa-calendar-alt"></i> July 2015 - Feb 2016</div>
+                        <h3>Senior Project Officer</h3>
+                        <p class="org">Foundation for Ecological Security (FES), Anand</p>
+                        <p>Ecological study using GeoAI, handling multi-criteria decision support systems, geospatial database management, and GeoServer for different portals.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-logo">
+                            <img src="https://bitmesra.ac.in/SiteLogo/BIT-Mesra.png" alt="BIT Mesra Logo" onerror="this.src='https://via.placeholder.com/50x50/1a365d/ffffff?text=BIT'">
+                        </div>
+                        <div class="timeline-date"><i class="fas fa-graduation-cap"></i> 2009 - 2011</div>
+                        <h3>M.Tech in Remote Sensing & GIS</h3>
+                        <p class="org">Birla Institute of Technology, Mesra, Ranchi</p>
+                        <p>First Class. Thesis: "Geospatial Technique-based Urban Green Space Estimation and Accessibility Analysis in Patna, Bihar"</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-logo">
+                            <img src="https://www.bhu.ac.in/Scripts/SitesBhu/images/logo.png" alt="BHU Logo" onerror="this.src='https://via.placeholder.com/50x50/1a365d/ffffff?text=BHU'">
+                        </div>
+                        <div class="timeline-date"><i class="fas fa-graduation-cap"></i> 2007 - 2009</div>
+                        <h3>Masters in Geography</h3>
+                        <p class="org">Banaras Hindu University, Varanasi</p>
+                        <p>Thesis: "Remote Sensing and GIS–Based Cadastral Mapping Information System: A Case Study from Mirzapur District, Uttar Pradesh"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications" style="background: #f8fafc;">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="expand-trigger">Selected Publications</h2>
+                <p>Peer-reviewed research in high-impact journals on environmental sustainability, forests, and geospatial applications.</p>
+            </div>
+            <div class="expandable-content">
+                <p><strong>Publication Strategy:</strong> Focus on interdisciplinary journals that bridge geospatial science, environmental management, and climate change research.</p>
+                <p><strong>Impact Metrics:</strong> Publications in Q1 journals with impact factors ranging from 2.5 to 15.3, demonstrating research excellence and academic contribution.</p>
+                <p><strong>Collaborative Research:</strong> Most publications are collaborative efforts, reflecting teamwork and interdisciplinary approach to complex environmental problems.</p>
+            </div>
+            <div class="publications-container">
+                <div class="pub-card">
+                    <h3>Enabling climate action: A nexus approach for delivering co-benefits across biodiversity, water, food, and health</h3>
+                    <span class="journal">One Earth (Impact factor: 15.3, Q1) - Under review</span>
+                    <p class="authors">Singh, P.K., Tiwari, L., et al.</p>
+                    <p>Manuscript ID: ONE-EARTH-D-25-00550R1</p>
+                    <a href="#contact" class="btn-small">Request Preprint</a>
+                </div>
+                <div class="pub-card">
+                    <h3>Quantifying habitat and biodiversity services and hotspots of Indian forests: A GIS-based assessment</h3>
+                    <span class="journal">Environmental and Sustainability Indicators (Impact factor: 5.6, Q1)</span>
+                    <p class="authors">Pandey, R., Tiwari, L., et al. (2024)</p>
+                    <p>Volume 23, September 2024, 100442</p>
+                    <a href="https://www.sciencedirect.com/science/article/pii/S2665972720401107" class="btn-small" target="_blank">View Publication</a>
+                </div>
+                <div class="pub-card">
+                    <h3>Vegetation characteristics-based climate change vulnerability assessment of temperate forests of Western Himalaya</h3>
+                    <span class="journal">Forests-MDPI (Impact factor: 2.5, Q1)</span>
+                    <p class="authors">Pandey, R., Tiwari, L., et al. (2022)</p>
+                    <p>13(6), 848</p>
+                    <a href="https://doi.org/10.3390/f13060848" class="btn-small" target="_blank">View Publication</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="expand-trigger">Research Projects</h2>
+                <p>Key research projects addressing environmental challenges through geospatial science and technology.</p>
+            </div>
+            <div class="expandable-content">
+                <p><strong>Project Portfolio:</strong> A mix of ongoing and completed projects funded by national and international agencies, demonstrating capability to manage complex research initiatives.</p>
+                <p><strong>Funding Agencies:</strong> World Bank, Government of Karnataka, Department of Science & Technology (DST), Assam University.</p>
+                <p><strong>Project Impact:</strong> Focus on generating actionable insights for policy formulation and sustainable environmental management.</p>
+            </div>
+            <div class="projects-container">
+                <div class="project-card">
+                    <h3>REWARD Project</h3>
+                    <span class="status ongoing">Ongoing</span>
+                    <p>Rejuvenating Watershed for Agricultural Resilience through Innovative Development. Funded by Government of Karnataka. Lead researcher on geospatial and causal modelling to assess hydroclimatic and socio-economic impacts.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Sone Beel Sustainable Management</h3>
+                    <span class="status ongoing">Ongoing</span>
+                    <p>Social, ecological, environmental and economic analysis of Sone Beel for sustainable management. Funded by Assam University. Analyzing earth environment, hydro-climatic dynamics and socio-economic dependencies.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Climate Change Vulnerability in Himalayas</h3>
+                    <span class="status">Completed</span>
+                    <p>Assessment of socio-ecological vulnerability to climate change among agroforestry managers along an altitude gradient in the Eastern Himalayas. Funded by Department of Science & Technology (DST).</p>
+                </div>
+                <div class="project-card">
+                    <h3>Geo-ICT Enabled Micro-Planning</h3>
+                    <span class="status">Completed</span>
+                    <p>Institutionalisation of Geo-ICT Enabled Micro-Planning for Inclusive Development in India. Funded by DST. Developed participatory geospatial planning frameworks for decentralised governance and SDG-aligned village development.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section style="background: #f1f5f9;">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="expand-trigger">Technical Skills & Proficiency</h2>
+                <p>Advanced expertise in geospatial technologies, programming, and environmental modelling tools.</p>
+            </div>
+            <div class="expandable-content">
+                <p><strong>Technical Evolution:</strong> Continuous skill development with focus on emerging technologies in geospatial science, cloud computing, and artificial intelligence.</p>
+                <p><strong>Tool Proficiency:</strong> Mastery of both proprietary (ArcGIS, ENVI) and open-source (QGIS, GDAL) geospatial tools, complemented by strong programming capabilities.</p>
+                <p><strong>Specialized Training:</strong> Multiple certifications from NASA ARSET program covering advanced remote sensing applications and techniques.</p>
+            </div>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3><i class="fas fa-map-marked-alt"></i> Geospatial Analysis</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Google Earth Engine</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>ArcGIS Pro / QGIS</span>
+                            <span>92%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 92%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Remote Sensing (ENVI, Erdas)</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming & Analytics</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Python (GeoAI, ML)</span>
+                            <span>88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 88%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>R Statistical Programming</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>JavaScript (GEE)</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-cogs"></i> Modelling & Specialized Tools</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Hydrological Modelling (SWAT+)</span>
+                            <span>87%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 87%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>GeoAI / Machine Learning</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>SAR Applications</span>
+                            <span>82%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 82%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Certifications -->
+            <div class="section-title" style="margin-top: 100px;">
+                <h2 class="expand-trigger">Certifications</h2>
+                <p>Professional certifications in remote sensing and geospatial technologies.</p>
+            </div>
+            <div class="expandable-content">
+                <p><strong>Certification Portfolio:</strong> Specialized training from leading space agencies and research institutions, with emphasis on practical applications of remote sensing technologies.</p>
+                <p><strong>NASA ARSET Series:</strong> Comprehensive training in various advanced remote sensing applications including methane monitoring, SAR applications, and invasive species detection.</p>
+            </div>
+            <div class="certifications-container">
+                <div class="cert-card">
+                    <div class="cert-logo">
+                        <img src="https://appliedsciences.nasa.gov/themes/custom/nasa_as/logo.svg" alt="NASA ARSET Logo" onerror="this.src='https://via.placeholder.com/60x60/1a365d/ffffff?text=NASA'">
+                    </div>
+                    <div>
+                        <h4>NASA ARSET - Invasive Species Monitoring</h4>
+                        <p>Applied Remote Sensing Training Program, 2024</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-logo">
+                        <img src="https://appliedsciences.nasa.gov/themes/custom/nasa_as/logo.svg" alt="NASA ARSET Logo" onerror="this.src='https://via.placeholder.com/60x60/1a365d/ffffff?text=NASA'">
+                    </div>
+                    <div>
+                        <h4>NASA ARSET - Methane Monitoring</h4>
+                        <p>Large Emission Event Detection and Monitoring, 2024</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-logo">
+                        <img src="https://appliedsciences.nasa.gov/themes/custom/nasa_as/logo.svg" alt="NASA ARSET Logo" onerror="this.src='https://via.placeholder.com/60x60/1a365d/ffffff?text=NASA'">
+                    </div>
+                    <div>
+                        <h4>NASA ARSET - SAR Applications</h4>
+                        <p>Synthetic Aperture Radar and Its Applications, 2024</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-logo">
+                        <img src="https://elearning.iirs.gov.in/img/logo.png" alt="IIRS Logo" onerror="this.src='https://via.placeholder.com/60x60/1a365d/ffffff?text=IIRS'">
+                    </div>
+                    <div>
+                        <h4>Remote Sensing, GIS & GPS</h4>
+                        <p>Indian Institute of Remote Sensing (IIRS), 2009</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-logo">
+                        <img src="https://www.jnu.ac.in/sites/default/files/logo_0.png" alt="JNU Logo" onerror="this.src='https://via.placeholder.com/60x60/1a365d/ffffff?text=JNU'">
+                    </div>
+                    <div>
+                        <h4>Advanced Geospatial Techniques</h4>
+                        <p>Jawaharlal Nehru University, Workshop Certification</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;" class="expand-trigger">Get In Touch</h2>
+                <p style="color: rgba(255, 255, 255, 0.95);">Interested in collaborations, research opportunities, or discussing geospatial science applications?</p>
+            </div>
+            <div class="expandable-content" style="background: rgba(255, 255, 255, 0.1);">
+                <p style="color: rgba(255, 255, 255, 0.95);"><strong>Collaboration Opportunities:</strong> Open to collaborative research, consultancy projects, academic supervision, and knowledge exchange initiatives in geospatial science and environmental research.</p>
+                <p style="color: rgba(255, 255, 255, 0.95);"><strong>Response Time:</strong> Typically respond within 24-48 hours for professional inquiries and collaboration requests.</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>lktiwari@irma.ac.in<br>lktgeotech@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <div class="phone-protected">+91-95809XXXXX</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="contact-details">
+                            <h4>Location</h4>
+                            <p>Institute of Rural Management Anand (IRMA)<br>Anand, Gujarat, India</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://orcid.org/0009-0007-6871-5255" target="_blank" title="ORCID"><i class="fab fa-orcid"></i></a>
+                        <a href="https://scholar.google.com/citations?hl=en&authuser=1&user=gAmi2oUAAAAJ" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                        <a href="https://www.researchgate.net/profile/Lakshmikant-Tiwari" target="_blank" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
+                        <a href="https://www.linkedin.com/in/lakshmikant-tiwari-3149541a" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <h3>Research & Professional Profiles</h3>
+                    <p>Connect with me on academic and professional networks to explore collaborative opportunities in geospatial science, environmental modelling, and climate resilience research.</p>
+                    <ul class="profiles-list">
+                        <li><a href="https://orcid.org/0009-0007-6871-5255" target="_blank"><i class="fab fa-orcid"></i> ORCID Profile</a></li>
+                        <li><a href="https://scholar.google.com/citations?hl=en&authuser=1&user=gAmi2oUAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a></li>
+                        <li><a href="https://www.researchgate.net/profile/Lakshmikant-Tiwari" target="_blank"><i class="fab fa-researchgate"></i> ResearchGate</a></li>
+                        <li><a href="https://www.linkedin.com/in/lakshmikant-tiwari-3149541a" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn Profile</a></li>
+                    </ul>
+                    <p style="margin-top: 30px; color: #4a5568; padding: 15px; background: #f7fafc; border-radius: 10px;">
+                        <i class="fas fa-clipboard-check" style="color: var(--accent); margin-right: 10px;"></i>
+                        Reviewer for Elsevier and Springer journals including <strong>Environmental and Sustainability Indicators</strong> and <strong>Ecological Indicators</strong>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Lakshmikant Tiwari</h3>
+                    <p>Research Fellow specializing in Geo-information Science, Earth Systems Modelling, and Climate Resilience with 8+ years of applied research experience.</p>
+                    <p>Institute of Rural Management Anand (IRMA), India</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> About</a></li>
+                        <li><a href="#affiliations"><i class="fas fa-chevron-right"></i> Affiliations</a></li>
+                        <li><a href="#research"><i class="fas fa-chevron-right"></i> Research</a></li>
+                        <li><a href="#experience"><i class="fas fa-chevron-right"></i> Experience</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Research Focus Areas</h3>
+                    <ul class="footer-links">
+                        <li><a href="#research"><i class="fas fa-chevron-right"></i> Geospatial Science & GeoAI</a></li>
+                        <li><a href="#research"><i class="fas fa-chevron-right"></i> Hydrological Modelling</a></li>
+                        <li><a href="#research"><i class="fas fa-chevron-right"></i> Climate Resilience</a></li>
+                        <li><a href="#research"><i class="fas fa-chevron-right"></i> Environmental Monitoring</a></li>
+                        <li><a href="#research"><i class="fas fa-chevron-right"></i> Watershed Management</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Lakshmikant Tiwari. All rights reserved. | Designed with focus on Geospatial Science & Earth Systems Research</p>
+                <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.7;">Inspired by leading professionals in Geo-information Science including researchers from WUR, IIASA, NASA, and top-tier academic institutions worldwide.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('nav a, .btn').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if(this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('nav').classList.remove('active');
+                }
+            });
+        });
+
+        // Active Navigation on Scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if(scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Expandable Content Functionality
+        document.querySelectorAll('.expand-trigger').forEach(trigger => {
+            trigger.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.parentElement.nextElementSibling;
+                if (content && content.classList.contains('expandable-content')) {
+                    content.classList.toggle('active');
+                }
+            });
+        });
+
+        // Animate skill bars on scroll
+        const animateSkills = () => {
+            const skillBars = document.querySelectorAll('.skill-level');
+            skillBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.transition = 'width 1.5s ease-in-out';
+                    bar.style.width = width;
+                }, 300);
+            });
+        };
+
+        // Observe when skills section is in view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    animateSkills();
+                }
+            });
+        }, { threshold: 0.3 });
+
+        const skillsSection = document.querySelector('.skills-container');
+        if(skillsSection) {
+            observer.observe(skillsSection);
+        }
+
+        // Animate elements on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.interest-card, .pub-card, .project-card, .cert-card, .affiliation-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        entry.target.classList.add('animate-on-scroll');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            elements.forEach(el => {
+                observer.observe(el);
+            });
+        };
+
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', function() {
+            animateOnScroll();
+            
+            // Auto-expand first expandable section
+            const firstExpandable = document.querySelector('.expand-trigger');
+            if (firstExpandable) {
+                firstExpandable.classList.add('active');
+                const firstContent = firstExpandable.parentElement.nextElementSibling;
+                if (firstContent && firstContent.classList.contains('expandable-content')) {
+                    firstContent.classList.add('active');
+                }
+            }
+            
+            // Fix JNU logo - try alternative source if primary fails
+            const jnuLogos = document.querySelectorAll('img[alt="JNU Logo"]');
+            jnuLogos.forEach(img => {
+                img.onerror = function() {
+                    this.src = 'https://www.jnu.ac.in/sites/default/files/logo.png';
+                };
+            });
+        });
+    </script>
+</body>
+</html>
