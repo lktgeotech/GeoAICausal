@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   <url>
+      <loc>https://lktgeotech.github.io/GeoAICausal/</loc>
+      <lastmod>2024-05-21</lastmod>
+      <priority>1.0</priority>
+   </url>
+   <url>
+      <loc>https://lktgeotech.github.io/GeoAICausal/about.html</loc>
+      <lastmod>2024-05-21</lastmod>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://lktgeotech.github.io/GeoAICausal/publications.html</loc>
+      <lastmod>2024-05-21</lastmod>
+      <priority>0.8</priority>
+   </url>
+   <!-- Add more URLs for your project pages here if you have them -->
+   <!-- Example:
+   <url>
+      <loc>https://lktgeotech.github.io/GeoAICausal/reward-project.html</loc>
+      <lastmod>2024-05-21</lastmod>
+   </url>
+   -->
+</urlset>
