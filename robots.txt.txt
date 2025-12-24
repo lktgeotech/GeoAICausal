@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://lktgeotech.github.io/GeoAICausal/sitemap.xml
