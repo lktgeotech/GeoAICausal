@@ -1,0 +1,26 @@
+/* TEAM */
+  Lakshmikant Tiwari: GeoAI Researcher, Geospatial Scientist
+  Site: https://lktgeotech.github.io/GeoAICausal/
+  Email: lktiwari@irma.ac.in
+  Location: Anand, Gujarat, India
+  Research Focus: Causal GeoAI, Earth System Modelling, Climate-Environmental Systems
+
+/* THANKS */
+  Font Awesome: Icons
+  Unsplash: Images
+  Google Fonts: Typography
+  NASA ARSET: Training Resources
+  GitHub: Hosting
+
+/* SITE */
+  Last update: 2025-12-25
+  Language: English
+  Doctype: HTML5
+  Standards: HTML5, CSS3, JavaScript ES6+
+  Components: Responsive Design, Progressive Enhancement
+  Software: VS Code, Git, GitHub Pages
+
+/* NOTE */
+  This site is the research portfolio of Dr. Lakshmikant Tiwari,
+  showcasing expertise in GeoAI, Geospatial Science, and Earth System Modelling.
+  All research publications and projects are original work.
