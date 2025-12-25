@@ -1,6 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /nonexistent/
-
-# Sitemap location (CRITICAL: Use your full, correct URL)
-Sitemap: https://lktgeotech.github.io/GeoAICausal/sitemap.xml
