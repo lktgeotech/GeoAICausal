@@ -1,9 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://lktgeotech.github.io/GeoAICausal/index.html/</loc>
-    <lastmod>2025-12-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
+    <!-- Home / Main Page -->
+    <url>
+        <loc>https://lktgeotech.github.io/GeoAICausal/</loc>
+        <lastmod>2025-12-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <!-- Key Section: About -->
+    <url>
+        <loc>https://lktgeotech.github.io/GeoAICausal/#about</loc>
+        <lastmod>2025-12-25</lastmod>
+        <priority>0.9</priority>
+    </url>
+    <!-- Key Section: Research -->
+    <url>
+        <loc>https://lktgeotech.github.io/GeoAICausal/#research</loc>
+        <lastmod>2025-12-25</lastmod>
+        <priority>0.9</priority>
+    </url>
+    <!-- Key Section: Publications -->
+    <url>
+        <loc>https://lktgeotech.github.io/GeoAICausal/#publications</loc>
+        <lastmod>2025-12-25</lastmod>
+        <priority>0.9</priority>
+    </url>
+    <!-- Key Section: Contact -->
+    <url>
+        <loc>https://lktgeotech.github.io/GeoAICausal/#contact</loc>
+        <lastmod>2025-12-25</lastmod>
+        <priority>0.8</priority>
+    </url>
 </urlset>
