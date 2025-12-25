@@ -1,0 +1,54 @@
+# Robots.txt for Lakshmikant Tiwari's GeoAI Portfolio
+User-agent: *
+Allow: /
+Allow: /GeoAICausal/
+Allow: /GeoAICausal/index.html
+Allow: /GeoAICausal/sitemap.xml
+Allow: /GeoAICausal/robots.txt
+
+Disallow: /private/
+Disallow: /admin/
+Disallow: /login/
+Disallow: /cgi-bin/
+
+# Sitemap location
+Sitemap: https://lktgeotech.github.io/GeoAICausal/sitemap.xml
+
+# Crawl delay (requests per second)
+Crawl-delay: 1
+
+# Preferred host (canonical URL)
+Host: https://lktgeotech.github.io
+
+# Additional instructions for specific bots
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0.5
+
+User-agent: Googlebot-Image
+Allow: /
+Disallow: /*.gif$
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 5
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+# Block AI bots that might scrape content
+User-agent: ChatGPT-User
+Disallow: /
+User-agent: GPTBot
+Disallow: /
+User-agent: CCBot
+Disallow: /
