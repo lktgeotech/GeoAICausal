@@ -18,7 +18,7 @@ Sitemap: https://lktgeotech.github.io/GeoAICausal/sitemap.xml
 Crawl-delay: 1
 
 # Preferred host (canonical URL)
-Host: https://lktgeotech.github.io
+Host: https://lktgeotech.github.io/GeoAICausal/
 
 # Additional instructions for specific bots
 User-agent: Googlebot
